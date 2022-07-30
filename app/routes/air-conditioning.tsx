@@ -26,6 +26,9 @@ interface TableItem {
   realValue: number;
 }
 
+const formatNumber = (amount: number, decimalPlaces = 2): string =>
+  Math.round(amount).toFixed(decimalPlaces);
+
 export default function () {
   const logger = useLogger();
 
@@ -45,7 +48,7 @@ export default function () {
         description: formData.machine?.description,
         quantity: 1,
         value: formData.machine?.value,
-        realValue: formData.machine?.payValue,
+        realValue: formData.machine?.realValue,
       });
 
       // copper line
@@ -96,14 +99,22 @@ export default function () {
   let realTotal = 0;
 
   tableData.forEach((item) => {
-    total += item.value * item.quantity;
-    realTotal += item.realValue * item.quantity;
+    total += item.value * configs.general.iva * item.quantity;
+    realTotal += item.realValue * configs.general.iva * item.quantity;
   });
   const globalTotal = discount > 0 ? (total * (100 - discount)) / 100 : total;
 
   const proffit = globalTotal - realTotal;
 
-  logger("AirConditioning", { showAddModal, formData, tableData });
+  logger("AirConditioning", {
+    showAddModal,
+    formData,
+    tableData,
+    total,
+    realTotal,
+    globalTotal,
+    proffit,
+  });
 
   return (
     <>
@@ -178,7 +189,7 @@ export default function () {
             </Box>
 
             <Box className="flex items-center">
-              <Typography>{proffit} €</Typography>
+              <Typography>{formatNumber(proffit)} €</Typography>
             </Box>
           </Box>
         </Modal>
@@ -208,7 +219,7 @@ export default function () {
               </Box>
 
               <Box className="flex items-center">
-                <Typography>{total} €</Typography>
+                <Typography>{formatNumber(total)} €</Typography>
               </Box>
             </Box>
 
@@ -221,7 +232,7 @@ export default function () {
                 </Box>
 
                 <Box className="flex items-center">
-                  <Typography>{discount} %</Typography>
+                  <Typography>{formatNumber(discount, 0)} %</Typography>
                 </Box>
               </Box>
 
@@ -233,7 +244,7 @@ export default function () {
                 </Box>
 
                 <Box className="flex items-center">
-                  <Typography>{globalTotal} €</Typography>
+                  <Typography>{formatNumber(globalTotal)} €</Typography>
                 </Box>
               </Box>
             </Box>
@@ -268,7 +279,7 @@ export default function () {
                 {
                   id: "value",
                   head: () => "Valor",
-                  body: (item) => <>{item.value} €</>,
+                  body: (item) => <>{formatNumber(item.value)} €</>,
                   foot: () => "Valor",
                 },
                 {
@@ -281,7 +292,12 @@ export default function () {
                   id: "totalValue",
                   head: () => "Total (c/ IVA)",
                   body: (item) => (
-                    <>{item.quantity * item.value * configs.general.iva} €</>
+                    <>
+                      {formatNumber(
+                        item.quantity * item.value * configs.general.iva
+                      )}{" "}
+                      €
+                    </>
                   ),
                   foot: () => "Total (c/ IVA)",
                 },

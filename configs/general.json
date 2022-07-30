@@ -1,7 +1,7 @@
 {
   "priceByHour": {
     "value": 10,
-    "realValue": 10
+    "realValue": 0
   },
   "copper": {
     "value": 20,

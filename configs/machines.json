@@ -1,70 +1,70 @@
 [
   {
     "value": 187,
-    "payValue": 108.6,
+    "realValue": 108.6,
     "timeOfWork": 8,
     "type": "Interior",
     "description": "FREEO 25WE-TV-W EVAP"
   },
   {
     "value": 191,
-    "payValue": 114.6,
+    "realValue": 114.6,
     "timeOfWork": 8,
     "type": "Interior",
     "description": "FREEO 35WE-TV-W"
   },
   {
     "value": 300,
-    "payValue": 180,
+    "realValue": 180,
     "timeOfWork": 8,
     "type": "Interior",
     "description": "FREEO 50WE-TV-W"
   },
   {
     "value": 820,
-    "payValue": 492,
+    "realValue": 492,
     "timeOfWork": 8,
     "type": "Exterior",
     "description": "FREEO 2x1-COND-40W"
   },
   {
     "value": 962,
-    "payValue": 577.2,
+    "realValue": 577.2,
     "timeOfWork": 8,
     "type": "Exterior",
     "description": "FREEO 2x1-COND-50W"
   },
   {
     "value": 1299,
-    "payValue": 779.4,
+    "realValue": 779.4,
     "timeOfWork": 8,
     "type": "Exterior",
     "description": "FREEO 3x1-COND-60W"
   },
   {
     "value": 1468,
-    "payValue": 880.8,
+    "realValue": 880.8,
     "timeOfWork": 8,
     "type": "Exterior",
     "description": "FREEO 3x1-COND-71W"
   },
   {
     "value": 1613,
-    "payValue": 967.8,
+    "realValue": 967.8,
     "timeOfWork": 8,
     "type": "Exterior",
     "description": "FREEO 4x1-COND-80W"
   },
   {
     "value": 1912,
-    "payValue": 1147.2,
+    "realValue": 1147.2,
     "timeOfWork": 8,
     "type": "Exterior",
     "description": "FREEO 4x1-COND-100W"
   },
   {
     "value": 2355,
-    "payValue": 1413,
+    "realValue": 1413,
     "timeOfWork": 8,
     "type": "Exterior",
     "description": "FREEO 5x1-COND-125W"
