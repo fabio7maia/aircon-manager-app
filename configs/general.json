@@ -1,0 +1,15 @@
+{
+  "priceByHour": {
+    "value": 10,
+    "realValue": 10
+  },
+  "copper": {
+    "value": 20,
+    "realValue": 2
+  },
+  "bomb": {
+    "value": 60,
+    "realValue": 60
+  },
+  "iva": 1.23
+}

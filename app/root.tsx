@@ -11,7 +11,7 @@ import {
 import type { LinksFunction } from "remix";
 import { Form } from "react-light-form";
 import { Box, defaultInputClassNames, Footer, Navbar, ToTop } from "~/shared";
-import tailwindStyles from "~/styles/tailwind.css";
+import tailwindStyles from "~/styles/main.css";
 import { RemixIcon, TailwindIcon } from "~/icons";
 import { AppProviders } from "~/providers";
 
@@ -140,7 +140,7 @@ function Document({
   title?: string;
 }) {
   return (
-    <html lang="en" data-theme="dark">
+    <html lang="en" data-theme="light">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />

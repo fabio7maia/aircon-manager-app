@@ -7,7 +7,7 @@ export default function () {
   const navigate = useNavigate();
 
   useDidMount(() => {
-    const redirectRoute = isUserLogged ? routes.home : routes.login;
+    const redirectRoute = routes.airConditioning; //isUserLogged ? routes.home : routes.login;
 
     navigate(redirectRoute);
   });
