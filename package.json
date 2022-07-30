@@ -1,0 +1,55 @@
+{
+  "name": "remix-app-template",
+  "version": "0.1.0",
+  "description": "Remix App template",
+  "author": {
+    "email": "fabio7maia@gmail.com",
+    "name": "Fábio Maia"
+  },
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fabio7maia/remix-app-template.git"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "cross-env NODE_ENV=production npm run build:css && remix build",
+    "build:css": "tailwindcss -o ./app/styles/tailwind.css",
+    "dev": "cross-env NODE_ENV=development concurrently \"npm run dev:css\" \"remix dev\"",
+    "dev:css": "tailwindcss -o ./app/styles/tailwind.css --watch && postcss styles --base styles --dir app/styles -w",
+    "postinstall": "remix setup node",
+    "get-openapi": "node scripts/getOpenApi.js",
+    "copy-api-2-src": "node scripts/copyApi2Src.js",
+    "gen:api": "npm run get-openapi && openapi-generator generate --skip-validate-spec --input-spec .gen/api/openapi.json --generator-name typescript-axios --output .gen/api/client --config api.json --model-name-prefix XAdmin && cd .gen/api/client && npm install && npm run build && cd ../../.. && npm run copy-api-2-src"
+  },
+  "dependencies": {
+    "@heroicons/react": "^1.0.5",
+    "@remix-run/react": "^1.2.2",
+    "@remix-run/vercel": "^1.2.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-light-form": "^1.8.0",
+    "remix": "^1.2.2"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.2.2",
+    "@remix-run/serve": "^1.2.2",
+    "@tailwindcss/typography": "^0.5.0",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "api-spec-converter": "^2.12.0",
+    "axios": "^0.26.1",
+    "concurrently": "^6.4.0",
+    "cross-env": "^7.0.3",
+    "daisyui": "^2.13.0",
+    "dotenv": "^16.0.0",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "tailwindcss": "^3.0.1",
+    "typescript": "^4.5.5"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}

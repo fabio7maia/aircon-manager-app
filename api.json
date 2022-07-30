@@ -1,0 +1,7 @@
+{
+  "npmName": "@remix-app-template/api",
+  "npmVersion": "0.1.0",
+  "snapshot": false,
+  "supportsES6": false,
+  "modelPropertyNaming": "original"
+}
